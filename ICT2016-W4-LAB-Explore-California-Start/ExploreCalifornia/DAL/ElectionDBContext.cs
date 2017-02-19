@@ -6,9 +6,9 @@ using System.Linq;
 using System.Web;
 namespace ExploreCalifornia.DAL
 {
-    public class ElectionDB: DbContext
+    public class ElectionDBContext: DbContext
     {
-        public ElectionDB() : base("ElectionDB")
+        public ElectionDBContext() : base("ElectionDB")
         {
 
         }

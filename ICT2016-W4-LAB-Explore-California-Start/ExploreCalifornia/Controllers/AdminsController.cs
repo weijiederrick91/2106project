@@ -13,7 +13,7 @@ namespace ExploreCalifornia.Controllers
 {
     public class AdminsController : Controller
     {
-        private ElectionDB db = new ElectionDB();
+        private ElectionDBContext db = new ElectionDBContext();
 
         // GET: Admins
         public ActionResult Index()
