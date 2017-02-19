@@ -8,7 +8,7 @@ namespace ExploreCalifornia.Models
 {
     public class Booking
     {
-
+        [Key]
         public int BookingID { get; set; }
         public int TourID { get; set; }
         public string TourName { get; set; }
