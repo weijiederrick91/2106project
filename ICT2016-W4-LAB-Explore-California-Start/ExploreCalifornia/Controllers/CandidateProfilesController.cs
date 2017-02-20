@@ -13,14 +13,23 @@ namespace ExploreCalifornia.Controllers
 {
     public class CandidateProfilesController : Controller
     {
-
-       // private ElectionDBContext db = new ElectionDBContext();
+        
+        // private ElectionDBContext db = new ElectionDBContext();
         internal CandidateProfileTableModule CandidateProfileTM = new CandidateProfileTableModule();
         // GET: CandidateProfiles
         public ActionResult Index()
         {
-           
+
+
             return View(CandidateProfileTM.ViewProfiles());
+
+        }
+        public ActionResult IndexWithComment()
+        {
+
+
+            return View(CandidateProfileTM.ViewProfiles());
+
         }
 
         // GET: CandidateProfiles/Details/5
@@ -73,7 +82,11 @@ namespace ExploreCalifornia.Controllers
             {
                 return HttpNotFound();
             }
-            return View(candidateProfile);
+            if (id == 4) //Assuming Candidate ID is 4, only candidate ID 4 can edit his/her own profile. 
+            {
+                return View(candidateProfile);
+            }
+            return RedirectToAction("IndexWithComment");
         }
 
         // POST: CandidateProfiles/Edit/5

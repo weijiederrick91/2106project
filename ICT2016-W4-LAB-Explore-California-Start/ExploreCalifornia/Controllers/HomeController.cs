@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ExploreCalifornia.Controllers
 {
+   
     public class HomeController : Controller
     {
         // GET: Home

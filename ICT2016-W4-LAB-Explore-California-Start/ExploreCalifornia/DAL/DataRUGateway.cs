@@ -24,11 +24,12 @@ namespace ExploreCalifornia.DAL
         public void Update(T obj)
         {
             db.Entry(obj).State = EntityState.Modified;
-            db.SaveChanges();
+            this.Save();
+           
         }
         public void Save()
         {
-            throw new NotImplementedException();
+            db.SaveChanges();
         }
 
         public T SelectByID(int? id)
