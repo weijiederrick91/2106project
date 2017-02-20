@@ -10,9 +10,9 @@ namespace ExploreCalifornia.Models
     public class Voter
     {
         [Key]
-        public int UserID { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+        public int VoterID { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public int SingleVote { get; set; }
     }
 }

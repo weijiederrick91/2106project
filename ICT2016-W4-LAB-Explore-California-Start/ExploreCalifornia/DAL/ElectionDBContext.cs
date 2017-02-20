@@ -8,7 +8,7 @@ namespace ExploreCalifornia.DAL
 {
     public class ElectionDBContext: DbContext
     {
-        public ElectionDBContext() : base("ElectionDB")
+        public ElectionDBContext() : base("ElectionDBContext")
         {
 
         }

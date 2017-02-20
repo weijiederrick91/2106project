@@ -10,7 +10,8 @@ namespace ExploreCalifornia.Models
     {
         [Key]
         public int RalliesID { get; set; }
-        public string Date { get; set; }
+        public System.DateTime Date { get; set; }
         public string Location { get; set; }
+        public string CandidateID { get; set;}
     }
 }

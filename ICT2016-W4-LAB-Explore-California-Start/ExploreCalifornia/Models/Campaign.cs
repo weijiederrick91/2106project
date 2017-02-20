@@ -10,7 +10,7 @@ namespace ExploreCalifornia.Models
     {
         [Key]
         public int CampaignID { get; set; }
-        public double EndTime { get; set; }
-        public double StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public DateTime StartTime { get; set; }
     }
 }

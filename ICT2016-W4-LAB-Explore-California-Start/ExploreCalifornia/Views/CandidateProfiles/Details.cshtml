@@ -1,0 +1,58 @@
+﻿@model ExploreCalifornia.Models.CandidateProfile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CandidateProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionApplied)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionApplied)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Introduction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CandidateID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
