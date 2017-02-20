@@ -6,6 +6,8 @@ using System.Web;
 
 namespace ExploreCalifornia.DAL
 {
+    //This DataRUGateway class implements the InterfaceDataRUGateway. It deals with the database context with regards to its operations. 
+    //It is part of the Data Source Layer.
     public class DataRUGateway<T> :InterfaceDataRUGateway<T> where T : class
     {
         internal ElectionDBContext db = new ElectionDBContext();

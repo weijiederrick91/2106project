@@ -7,6 +7,7 @@ using ExploreCalifornia.Models;
 using System.Web.Mvc;
 namespace ExploreCalifornia.TableModule
 {
+    //This class handles the business logic for all rows in the CandidateProfile Database table. It is part of the Domain Layer.
     public class CandidateProfileTableModule
     {
         private DataRUGateway<CandidateProfile> TestGateway = new DataRUGateway<CandidateProfile>();

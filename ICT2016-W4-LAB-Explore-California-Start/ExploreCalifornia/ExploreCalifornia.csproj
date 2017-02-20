@@ -162,7 +162,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\CandidateProfilesController.cs" />
-    <Compile Include="Controllers\CandidatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\CandidateProfileGateway.cs" />
     <Compile Include="DAL\DataRUGateway.cs" />
@@ -215,11 +214,6 @@
     <Content Include="Views\CandidateProfiles\Details.cshtml" />
     <Content Include="Views\CandidateProfiles\Edit.cshtml" />
     <Content Include="Views\CandidateProfiles\Index.cshtml" />
-    <Content Include="Views\Candidates\Create.cshtml" />
-    <Content Include="Views\Candidates\Delete.cshtml" />
-    <Content Include="Views\Candidates\Details.cshtml" />
-    <Content Include="Views\Candidates\Edit.cshtml" />
-    <Content Include="Views\Candidates\Index.cshtml" />
     <Content Include="Views\CandidateProfiles\IndexWithComment.cshtml" />
   </ItemGroup>
   <ItemGroup>

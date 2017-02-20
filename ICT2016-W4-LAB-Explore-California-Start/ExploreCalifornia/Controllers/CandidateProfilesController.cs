@@ -11,6 +11,7 @@ using ExploreCalifornia.Models;
 using ExploreCalifornia.TableModule;
 namespace ExploreCalifornia.Controllers
 {
+    //This class accepts input and converts it into commands and updates the view accordingly.  It is part of the presentation layer.
     public class CandidateProfilesController : Controller
     {
         

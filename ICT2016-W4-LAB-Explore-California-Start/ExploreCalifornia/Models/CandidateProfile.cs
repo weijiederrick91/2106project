@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 namespace ExploreCalifornia.Models
 {
+    //THIS CLASS IS THE MODEL COMPONENT FOR THE CANDIDATEPROFILE.
+    //IT HELPS TO INSTANTIATE THE CANDIDATEPROFILE DATABASE, AS IT STATES THE ATTRIBUTE OF THE CANDIDATEPROFILE TABLE.
+    //IT ASSISTS IN PROVIDING FOR THE DOMAIN LAYER AS WELL.
     public class CandidateProfile
     {
         [Key]
