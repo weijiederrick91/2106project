@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ExploreCalifornia.Models.Candidate>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.candidateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.candidateYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PositionApplied)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCA)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.candidateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.candidateYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionApplied)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Introduction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCA)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.candidateID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.candidateID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.candidateID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

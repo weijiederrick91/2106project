@@ -1,0 +1,66 @@
+﻿@model ExploreCalifornia.Models.Candidate
+
+@{
+    ViewBag.Title = "Confirm";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Confirm</title>
+</head>
+<body>
+    <div>
+        <h4>Candidate</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.candidateName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.candidateName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.candidateYear)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.candidateYear)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PositionApplied)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PositionApplied)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Introduction)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CCA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CCA)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
