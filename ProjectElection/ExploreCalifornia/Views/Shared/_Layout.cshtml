@@ -22,8 +22,22 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar-brand" })</li>
-                  
-                    <li>@Html.ActionLink("Candidate Profiles", "Index", "CandidateProfiles", null, new { @class = "navbar-brand" })</li>
+
+
+                    @if (@TempData["NoMoreLogin"] != "NoMore")
+                    {
+                    <li>@Html.ActionLink("LOGIN", "Login", "Voters", null, new { @class = "navbar-brand" })</li>
+                    }
+
+
+
+                    @if (@TempData["ResultMessage"]== "True")
+                    {
+                        <li>@Html.ActionLink("Candidate Profiles", "Index", "CandidateProfiles", null, new { @class = "navbar-brand" })</li>
+                    }
+
+
+
                 </ul>
             </div>
         </div>

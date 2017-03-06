@@ -163,6 +163,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\CandidateProfilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VotersController.cs" />
     <Compile Include="DAL\CandidateProfileGateway.cs" />
     <Compile Include="DAL\DataRUGateway.cs" />
     <Compile Include="DAL\ElectionDBContext.cs" />
@@ -215,6 +216,12 @@
     <Content Include="Views\CandidateProfiles\Edit.cshtml" />
     <Content Include="Views\CandidateProfiles\Index.cshtml" />
     <Content Include="Views\CandidateProfiles\IndexWithComment.cshtml" />
+    <Content Include="Views\Voters\Create.cshtml" />
+    <Content Include="Views\Voters\Delete.cshtml" />
+    <Content Include="Views\Voters\Details.cshtml" />
+    <Content Include="Views\Voters\Edit.cshtml" />
+    <Content Include="Views\Voters\Index.cshtml" />
+    <Content Include="Views\Voters\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
