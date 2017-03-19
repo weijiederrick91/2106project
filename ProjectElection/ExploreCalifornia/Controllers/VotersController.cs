@@ -61,15 +61,7 @@ namespace ExploreCalifornia.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-        public ActionResult LogOff()
-        {
-            FormsAuthentication.SignOut();
-
-            return RedirectToAction("Index", "Home");
-        }
-
-
+        
 
 
 
