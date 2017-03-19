@@ -86,7 +86,7 @@ namespace ExploreCalifornia.Controllers
             {
                 return HttpNotFound();
             }
-            if (id == 4) //Assuming Candidate ID is 4, only candidate ID 4 can edit his/her own profile. 
+            if (id == 4) //candidates can only edit his/her own profile. 
             {
                 return View(candidateProfile);
             }
