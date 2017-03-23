@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Team11_2106Project.Models.CandidateProfile>
+
+@{
+    ViewBag.Title = "IndexWithComment";
+}
+
+<h2>Index</h2>
+
+<h3  style="color:red"> PLEASE DO NOT EDIT OTHERS PROFILE.</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionApplied)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCA)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionApplied)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Introduction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCA)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CandidateID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CandidateID }) 
+            </td>
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,22 @@
+﻿
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace Team11_2106Project.Models
+{
+    public class Candidate
+    {
+        [Key]
+        public int UserID { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int SingleVote { get; set; }
+        public double TotalVote { get; set; }
+        public string Name { get; set; }
+        public int CandidateID { get; set; }
+
+    }
+}
