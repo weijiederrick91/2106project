@@ -194,15 +194,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\CampaignController.cs" />
     <Compile Include="Controllers\CandidateProfilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RalliesController.cs" />
-    <Compile Include="Controllers\VotersController.cs" />
-    <Compile Include="DAL\CandidateProfileGateway.cs" />
-    <Compile Include="DAL\DataRUGateway.cs" />
-    <Compile Include="DAL\ElectionDBContext.cs" />
-    <Compile Include="DAL\InterfaceDataRUGateway.cs" />
+    <Compile Include="Gateway\DataRUGateway.cs" />
+    <Compile Include="TableModule\HomeTM.cs" />
+    <Compile Include="UOW\ElectionDBContext.cs" />
+    <Compile Include="Gateway\IDataRUGateway.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,7 +211,7 @@
     <Compile Include="Models\Voter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="TableModule\CandidateProfileTableModule.cs" />
+    <Compile Include="TableModule\CandidateProfileTM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ElectionDBContext.mdf" />
@@ -263,12 +260,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Voters\Create.cshtml" />
-    <Content Include="Views\Voters\Delete.cshtml" />
-    <Content Include="Views\Voters\Details.cshtml" />
-    <Content Include="Views\Voters\Edit.cshtml" />
-    <Content Include="Views\Voters\Index.cshtml" />
-    <Content Include="Views\Voters\Login.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
