@@ -196,9 +196,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\CandidateProfilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Gateway\DataRUGateway.cs" />
+    <Compile Include="Domain Model\CandidateProfile.cs" />
+    <Compile Include="Domain Model\ICandidateProfile.cs" />
+    <Compile Include="Domain Model\IRallies.cs" />
+    <Compile Include="Domain Model\Rallies.cs" />
+    <Compile Include="Gateway\DataGateway.cs" />
     <Compile Include="DBContext\ElectionDBContext.cs" />
-    <Compile Include="Gateway\IDataRUGateway.cs" />
+    <Compile Include="Gateway\IDataGateway.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
