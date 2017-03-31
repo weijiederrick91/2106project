@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Team11_2106Project.Domain_Model
+namespace Team11_2106Project.DomainModel
 {
     interface ICandidateProfile
     {

@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.ComponentModel.DataAnnotations;
 using Team11_2106Project.Gateway;
-using Team11_2106Project.ViewModel;
-namespace Team11_2106Project.Domain_Model
+
+namespace Team11_2106Project.DomainModel
 {
     public class CandidateProfile :ICandidateProfile
     {

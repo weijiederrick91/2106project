@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Team11_2106Project.Domain_Model
+namespace Team11_2106Project.DomainModel
 {
     public class Rallies : IRallies
     {
