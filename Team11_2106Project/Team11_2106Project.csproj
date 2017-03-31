@@ -198,7 +198,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Gateway\DataRUGateway.cs" />
     <Compile Include="TableModule\HomeTM.cs" />
-    <Compile Include="UOW\ElectionDBContext.cs" />
+    <Compile Include="DBContext\ElectionDBContext.cs" />
     <Compile Include="Gateway\IDataRUGateway.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

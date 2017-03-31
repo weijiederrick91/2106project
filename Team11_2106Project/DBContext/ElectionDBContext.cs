@@ -1,7 +1,7 @@
 ﻿using Team11_2106Project.Models;
 using System.Data.Entity;
 
-namespace Team11_2106Project.UOW
+namespace Team11_2106Project.DBContext
 {
     //This Class inherits from the DbContext to the folder. This helps to expose entities in the database by using public properties of a type called DBSet/
     //Adding a generic DBSet helps to hold the CandidateProfiles.  

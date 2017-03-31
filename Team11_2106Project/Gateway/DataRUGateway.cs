@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Team11_2106Project.UOW;
+using Team11_2106Project.DBContext;
 
 namespace Team11_2106Project.Gateway
 {

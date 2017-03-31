@@ -13,7 +13,7 @@ namespace Team11_2106Project.TableModule
             IEnumerable<Voter> votersData = voterGateway.SelectAll();
 
             foreach (Voter voters in votersData)
-            {
+            {   
                 if (voters.Email.Equals(email) && voters.Password.Equals(password))
                 {
                     return true;
