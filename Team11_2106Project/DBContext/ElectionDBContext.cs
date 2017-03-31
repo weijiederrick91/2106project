@@ -1,4 +1,4 @@
-﻿using Team11_2106Project.Models;
+﻿using Team11_2106Project.ViewModel;
 using System.Data.Entity;
 
 namespace Team11_2106Project.DBContext
@@ -12,12 +12,12 @@ namespace Team11_2106Project.DBContext
         {
 
         }
-        public DbSet<Campaign> Campaigns { get; set; }
-        public DbSet<Admin> Admins { get; set; }
-        public DbSet<Candidate> Candidates { get; set; }
-        public DbSet<Voter> Voters { get; set; }
-        public DbSet<Rallies> Ralliess { get; set; }
-        public DbSet<CandidateProfile> CandidateProfiles { get; set;  }
+        public DbSet<CampaignDateViewModel> CampaignDate { get; set; }
+        public DbSet<AdminViewModel> Admins { get; set; }
+        public DbSet<CandidateViewModel> Candidates { get; set; }
+        public DbSet<VoterViewModel> Voters { get; set; }
+        public DbSet<RalliesViewModel> Rallies { get; set; }
+        public DbSet<CandidateProfileViewModel> CandidateProfiles { get; set;  }
 
     }
 }

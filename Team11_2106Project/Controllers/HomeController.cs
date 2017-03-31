@@ -1,13 +1,10 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Team11_2106Project.Models;
-using Team11_2106Project.TableModule;
+﻿using System.Web.Mvc;
+using Team11_2106Project.ViewModel;
 
 namespace Team11_2106Project.Controllers
 {
     public class HomeController : Controller
     {
-        internal HomeTM HomeTM = new HomeTM();
 
         public ActionResult Index()
         {
@@ -20,28 +17,9 @@ namespace Team11_2106Project.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Voter model)
+        public ActionResult Login(VoterViewModel model)
         {
-            ViewBag.Sadness = ":(";
-
-            // Lets first check if the Model is valid or not
-            if (ModelState.IsValid)
-            {
-
-                if (HomeTM.ValidateLogin(model.Email, model.Password))
-                {
-                    TempData["ResultMessage"] = "True";
-
-                    TempData["NoMoreLogin"] = "NoMore";
-                    return RedirectToAction("Index", "CandidateProfiles");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
-            }
-
-            return View(model);
+            return View();
         }
     }
 }
