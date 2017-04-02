@@ -24,8 +24,9 @@ namespace Team11_2106Project.ViewModel
         {
             var users = new List<User>();
             users.Add(new User { Id = 1, user = "admin", password = "12345", estatus = true, RememberMe = true, ourRoles = Gender.Admin });
-            users.Add(new User { Id = 2, user = "lvasquez", password = "lvasquez", estatus = true, RememberMe = false,ourRoles =Gender.Candidate });
-            users.Add(new User { Id = 3, user = "invite", password = "12345", estatus = false, RememberMe = false ,});
+            users.Add(new User { Id = 2, user = "candidate", password = "123456", estatus = true, RememberMe = false,ourRoles =Gender.Candidate });
+            users.Add(new User { Id = 3, user = "voter", password = "1234567", estatus = false, RememberMe = false , ourRoles = Gender.Voter });
+            users.Add(new User { Id = 4, user = "admin2", password = "123455", estatus = true, RememberMe = true, ourRoles = Gender.Admin });
 
             return users.ToList();
         }

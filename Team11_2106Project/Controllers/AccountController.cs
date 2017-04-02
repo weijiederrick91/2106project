@@ -63,6 +63,18 @@ namespace Team11_2106Project.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+            if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentGender && model.StudentGender == Gender.Voter))
+            {
+
+                var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
+
+                Authentication.SignIn(new AuthenticationProperties
+                {
+                    IsPersistent = model.RememberMe
+                }, identity);
+
+                return RedirectToAction("Voter", "Home");
+            }
             else
             {
                 ModelState.AddModelError("", "Invalid login attempt.");

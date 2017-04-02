@@ -290,6 +290,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\VoteControl.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Home\Voter.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

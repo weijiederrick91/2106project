@@ -28,6 +28,14 @@ namespace Team11_2106Project.Controllers
                 //redirection to the action of login in the AccountController
                 return RedirectToAction("Admin", "Home");
         }
+        public ActionResult Voter()
+        {
+            if (Request.IsAuthenticated)
+                return View();
+            else
+                //redirection to the action of login in the AccountController
+                return RedirectToAction("Voter", "Home");
+        }
 
     }
 }
