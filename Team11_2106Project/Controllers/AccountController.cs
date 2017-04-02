@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using Team11_2106Project.DomainModel;
 
 namespace Team11_2106Project.Controllers
 {
@@ -35,51 +36,70 @@ namespace Team11_2106Project.Controllers
             {
                 return View(model);
             }
-            var data = new Data();
-            var users = data.getUsers();
-            
-            //Select the user and check if the name and password is the same and then check if the role that we select is the same.
-            if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Admin))
-            {   
-        
-                var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
 
-                Authentication.SignIn(new AuthenticationProperties
-                {
-                    IsPersistent = model.RememberMe
-                }, identity);
-
-                return RedirectToAction("Admin", "Home");
-            }
-            else if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Candidate))
-            {   
-        
-                var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
-
-                Authentication.SignIn(new AuthenticationProperties
-                {
-                    IsPersistent = model.RememberMe
-                }, identity);
-
-                return RedirectToAction("Index", "Home");
-            }
-            if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Voter))
+            if (model.StudentRole == StudentRole.Admin)
             {
-
-                var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
-
-                Authentication.SignIn(new AuthenticationProperties
+                ILogIn<Admin> iLogInAdmin = new Admin();
+                if (iLogInAdmin.Login(model.UserName, model.Password))
                 {
-                    IsPersistent = model.RememberMe
-                }, identity);
+                    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
 
-                return RedirectToAction("Voter", "Home");
+                    Authentication.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = model.RememberMe
+                    }, identity);
+
+                    return RedirectToAction("Admin", "Home");
+                }   
             }
-            else
-            {
-                ModelState.AddModelError("", "Invalid login attempt.");
-                return View(model);
-            }
+
+            ModelState.AddModelError("", "Invalid login attempt.");
+            return View(model);
+            //var data = new Data();
+            //var users = data.getUsers();
+
+            ////Select the user and check if the name and password is the same and then check if the role that we select is the same.
+            //if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Admin))
+            //{   
+
+            //    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
+
+            //    Authentication.SignIn(new AuthenticationProperties
+            //    {
+            //        IsPersistent = model.RememberMe
+            //    }, identity);
+
+            //    return RedirectToAction("Admin", "Home");
+            //}
+            //else if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Candidate))
+            //{   
+
+            //    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
+
+            //    Authentication.SignIn(new AuthenticationProperties
+            //    {
+            //        IsPersistent = model.RememberMe
+            //    }, identity);
+
+            //    return RedirectToAction("Index", "Home");
+            //}
+            //if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Voter))
+            //{
+
+            //    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
+
+            //    Authentication.SignIn(new AuthenticationProperties
+            //    {
+            //        IsPersistent = model.RememberMe
+            //    }, identity);
+
+            //    return RedirectToAction("Voter", "Home");
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("", "Invalid login attempt.");
+            //    return View(model);
+            //}
         }
 
         //

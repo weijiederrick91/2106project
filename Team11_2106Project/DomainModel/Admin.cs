@@ -1,4 +1,5 @@
 ﻿using Team11_2106Project.Gateway;
+using Team11_2106Project.ViewModel;
 
 /**
  * DomainModel that handles the business logic for the Admin class
@@ -12,16 +13,16 @@ namespace Team11_2106Project.DomainModel
         private int adminID { get; set; }
 
         // adminGateway
-        private IDataGateway<Admin> dataGatewayAdmin = new DataGateway<Admin>();
+        private IDataGateway<AdminViewModel> dataGatewayAdmin = new DataGateway<AdminViewModel>();
 
         // valiate Admin's login
         public new bool Login(string email, string password)
         {
             // iterate through every admin in the table
-            foreach(Admin admin in dataGatewayAdmin.SelectAll())
+            foreach(AdminViewModel admin in dataGatewayAdmin.SelectAll())
             {
                 // if email and password matches an Admin found in the table, admin's login is valid!
-                if (admin.email.Equals(email) && admin.password.Equals(password))
+                if (admin.Email.Equals(email) && admin.Password.Equals(password))
                 {
                     return true;
                 }
