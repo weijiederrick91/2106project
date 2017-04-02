@@ -20,13 +20,13 @@ namespace Team11_2106Project.ViewModel
 
         [Display(Name = "Select Your Role")]
         [Required]
-        public Gender StudentGender { get; set; }
+        public StudentRole StudentRole { get; set; }
 
       
     }
   
 }
-public enum Gender
+public enum StudentRole
 {
     Admin,
     Voter,

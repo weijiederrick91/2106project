@@ -26,7 +26,7 @@ namespace Team11_2106Project.ViewModel
         public int Id { get; set; }
         public string user { get; set; }
         public string password { get; set; }
-        public Gender ourRoles { get; set; }
+        public StudentRole ourRoles { get; set; }
         public bool estatus { get; set; }
         public bool RememberMe { get; set; }
     }

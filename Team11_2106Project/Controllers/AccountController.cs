@@ -39,7 +39,7 @@ namespace Team11_2106Project.Controllers
             var users = data.getUsers();
             
             //Select the user and check if the name and password is the same and then check if the role that we select is the same.
-            if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentGender && model.StudentGender == Gender.Admin))
+            if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Admin))
             {   
         
                 var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
@@ -51,7 +51,7 @@ namespace Team11_2106Project.Controllers
 
                 return RedirectToAction("Admin", "Home");
             }
-            else if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentGender && model.StudentGender == Gender.Candidate))
+            else if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Candidate))
             {   
         
                 var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
@@ -63,7 +63,7 @@ namespace Team11_2106Project.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentGender && model.StudentGender == Gender.Voter))
+            if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Voter))
             {
 
                 var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
