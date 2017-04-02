@@ -163,8 +163,6 @@ C:\Users\muhammad\Desktop\2106project\Team11_2106Project\obj\Debug\Team11_2106Pr
 C:\Users\muhammad\Desktop\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.dll
 C:\Users\muhammad\Desktop\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.pdb
 C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.csprojResolveAssemblyReference.cache
-C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.Migrations.init.resources
-C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.csproj.GenerateResource.Cache
 C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.dll
 C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.pdb
 C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\bin\ApplicationInsights.config
@@ -331,3 +329,5 @@ Z:\Github\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.dll
 Z:\Github\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.pdb
 Z:\Github\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.csprojResolveAssemblyReference.cache
 C:\Users\muhammad\Desktop\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.csprojResolveAssemblyReference.cache
+C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.Migrations.CandidateName.resources
+C:\Users\Michelle\Documents\GitHub\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.csproj.GenerateResource.Cache

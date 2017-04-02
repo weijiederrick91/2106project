@@ -11,6 +11,7 @@ namespace Team11_2106Project.ViewModel
         [Key]
         public int RalliesID { get; set; }
         public string CandidateID { get; set; }
+        public string CandidateName { get; set; }
         public System.DateTime Date { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }

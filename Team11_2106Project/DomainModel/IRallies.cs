@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using Team11_2106Project.ViewModel;
 namespace Team11_2106Project.DomainModel
 {
@@ -8,5 +9,6 @@ namespace Team11_2106Project.DomainModel
         void EditRallies(RalliesViewModel irally);
         void CreateRallies(RalliesViewModel irally);
         void DeleteRallies(int id);
+        IEnumerable<RalliesViewModel> ViewAllRallies();
     }
 }

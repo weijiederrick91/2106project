@@ -7,10 +7,10 @@ namespace Team11_2106Project.Gateway
 {
     //This DataRUGateway class implements the InterfaceDataRUGateway. It deals with the database context with regards to its operations. 
     //It is part of the Data Source Layer.
-    public class DataGateway<T> :IDataGateway<T> where T : class
+    public class DataGateway<T> : IDataGateway<T> where T : class
     {
         internal ElectionDBContext db = new ElectionDBContext();
-        internal DbSet<T> data = null; 
+        internal DbSet<T> data = null;
 
         public DataGateway()
         {
@@ -21,12 +21,26 @@ namespace Team11_2106Project.Gateway
             return data.ToList();
 
         }
-    
+        public T Delete(int? id)
+        {
+            T obj = data.Find(id);
+            data.Remove(obj);
+            db.SaveChanges();
+            return obj;
+
+
+        }
+
+        public void Insert(T obj)
+        {
+            data.Add(obj);
+            db.SaveChanges();
+        }
         public void Update(T obj)
         {
             db.Entry(obj).State = EntityState.Modified;
             this.Save();
-           
+
         }
         public void Save()
         {

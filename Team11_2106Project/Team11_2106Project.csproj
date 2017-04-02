@@ -197,6 +197,7 @@
     <Compile Include="Controllers\CandidateProfilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
+    <Compile Include="Controllers\RalliesViewModelsController.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="DomainModel\Admin.cs" />
     <Compile Include="DomainModel\Campaign.cs" />
@@ -216,9 +217,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703310911299_init.cs" />
-    <Compile Include="Migrations\201703310911299_init.Designer.cs">
-      <DependentUpon>201703310911299_init.cs</DependentUpon>
+    <Compile Include="Migrations\201704020953151_CandidateName.cs" />
+    <Compile Include="Migrations\201704020953151_CandidateName.Designer.cs">
+      <DependentUpon>201704020953151_CandidateName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModel\AdminViewModel.cs" />
@@ -290,6 +291,11 @@
     <Content Include="Views\Shared\VoteControl.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\Voter.cshtml" />
+    <Content Include="Views\RalliesViewModels\Create.cshtml" />
+    <Content Include="Views\RalliesViewModels\Delete.cshtml" />
+    <Content Include="Views\RalliesViewModels\Details.cshtml" />
+    <Content Include="Views\RalliesViewModels\Edit.cshtml" />
+    <Content Include="Views\RalliesViewModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -301,8 +307,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703310911299_init.resx">
-      <DependentUpon>201703310911299_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704020953151_CandidateName.resx">
+      <DependentUpon>201704020953151_CandidateName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
