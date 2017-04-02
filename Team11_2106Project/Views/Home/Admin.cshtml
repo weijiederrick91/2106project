@@ -1,35 +1,55 @@
-﻿@model Team11_2106Project.ViewModel.LoginViewModel
+﻿@model IEnumerable<Team11_2106Project.ViewModel.CandidateProfileViewModel>
 
-@{
-    ViewBag.Title = "Admin";
-}
+    @{
+        ViewBag.Title = "Admin";
+    }
 
-<!--5-->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Admin</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
+    <h2>Index</h2>
 
-                <li class="active">@Html.ActionLink("Home", "Index", new { controller = "Home" })
-                <li>@Html.ActionLink("Stats", "Index", "Home")</li>
-                <li>@Html.ActionLink("Rally", "Index", "RalliesViewModels")</li>
-                @*TODO FIND A WAY TO LINK CANDIDATE PROFILE PAGE*@
-                <li>@Html.ActionLink("Candidate Profile", "Index", "CandidateProfiles")</li>
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCA)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Introduction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCA)
+                </td>
 
 
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CandidateID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CandidateID });
+                    @*//TODO LINK TO vote to VOTER*@
 
-            </ul>
-            @Html.Partial("_LoginPartial")
-        </div><!--/.nav-collapse -->
-    </div>
-</div>
+                </td>
+            </tr>
+        }
 
+
+    </table>

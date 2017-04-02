@@ -23,6 +23,7 @@
                         @*<li class="active">@Html.ActionLink("Home", "Index", new { controller = "Home" })
                     <li>@Html.ActionLink("Profile", "VoteControl", "Vote")</li>
                     <li>@Html.ActionLink("Rally", "Index", "Home")</li>*@
+
                         <li>SUCK THAT BITCHES! CANDIDATE!!!</li>
                     </ul>
                 }
@@ -35,7 +36,11 @@
                 else if (studentRole.Equals("Admin"))
                 {
                     <ul class="nav navbar-nav">
-                        <li>SUCK THAT BITCHES! ADMIN!!!</li>
+                        <li class="active">@Html.ActionLink("Home", "Index", new { controller = "Home" })
+                        <li>@Html.ActionLink("Stats", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Rally", "Index", "RalliesViewModels")</li>
+                        @*TODO FIND A WAY TO LINK CANDIDATE PROFILE PAGE*@
+                        <li>@Html.ActionLink("Candidate Profile", "Index", "CandidateProfiles")</li>
                     </ul>
                 }
                 TempData["StudentRole"] = studentRole;

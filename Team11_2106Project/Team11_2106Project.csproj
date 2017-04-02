@@ -217,9 +217,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704020953151_CandidateName.cs" />
-    <Compile Include="Migrations\201704020953151_CandidateName.Designer.cs">
-      <DependentUpon>201704020953151_CandidateName.cs</DependentUpon>
+    <Compile Include="Migrations\201704021211485_candidateName.cs" />
+    <Compile Include="Migrations\201704021211485_candidateName.Designer.cs">
+      <DependentUpon>201704021211485_candidateName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModel\AdminViewModel.cs" />
@@ -307,8 +307,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704020953151_CandidateName.resx">
-      <DependentUpon>201704020953151_CandidateName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704021211485_candidateName.resx">
+      <DependentUpon>201704021211485_candidateName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

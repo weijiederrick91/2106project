@@ -3,7 +3,7 @@ namespace Team11_2106Project.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CandidateName : DbMigration
+    public partial class candidateName : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,6 @@ namespace Team11_2106Project.Migrations
                 c => new
                     {
                         AdminID = c.Int(nullable: false, identity: true),
-                        VoterID = c.Int(nullable: false),
                         Email = c.String(),
                         Password = c.String(),
                         HasVoted = c.Boolean(nullable: false),
@@ -47,10 +46,10 @@ namespace Team11_2106Project.Migrations
                     {
                         CandidateID = c.Int(nullable: false, identity: true),
                         TotalVotes = c.Int(nullable: false),
-                        VoterID = c.Int(nullable: false),
                         Email = c.String(),
                         Password = c.String(),
                         HasVoted = c.Boolean(nullable: false),
+                        Name = c.String(),
                     })
                 .PrimaryKey(t => t.CandidateID);
             

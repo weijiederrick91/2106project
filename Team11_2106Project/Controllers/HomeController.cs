@@ -128,7 +128,11 @@ namespace Team11_2106Project.Controllers
         public ActionResult Admin()
         {
             if (Request.IsAuthenticated)
-                return View();
+            {
+                ICandidateProfile iCandidateProfile = new CandidateProfile();
+                return View(iCandidateProfile.ViewAllProfiles());
+            }
+
             else
                 //redirection to the action of login in the AccountController
                 return RedirectToAction("Admin", "Home");
