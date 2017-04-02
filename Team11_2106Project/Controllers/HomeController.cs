@@ -53,6 +53,8 @@ namespace Team11_2106Project.Controllers
                         IsPersistent = model.RememberMe
                     }, identity);
 
+                    TempData["StudentRole"] = "Admin";
+
                     return RedirectToAction("Admin", "Home");
                 }
             }
@@ -72,6 +74,8 @@ namespace Team11_2106Project.Controllers
                         IsPersistent = model.RememberMe
                     }, identity);
 
+                    TempData["StudentRole"] = "Candidate";
+
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -90,6 +94,8 @@ namespace Team11_2106Project.Controllers
                     {
                         IsPersistent = model.RememberMe
                     }, identity);
+
+                    TempData["StudentRole"] = "Voter";
 
                     return RedirectToAction("Voter", "Home");
                 }

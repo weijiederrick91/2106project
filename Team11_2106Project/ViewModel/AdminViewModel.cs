@@ -11,7 +11,6 @@ namespace Team11_2106Project.ViewModel
     {
         [Key]
         public int AdminID { get; set; }
-        public int VoterID { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public bool HasVoted { get; set; }
