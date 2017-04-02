@@ -13,6 +13,9 @@ namespace Team11_2106Project.Controllers
     public class HomeController : Controller
     {
 
+        private ICandidateProfile iCandidateProfile = new CandidateProfile();
+        private IVote iVote;
+
         IAuthenticationManager Authentication
         {
             get { return HttpContext.GetOwinContext().Authentication; }
@@ -125,11 +128,13 @@ namespace Team11_2106Project.Controllers
                 return RedirectToAction("Login", "Home");
         }
 
+        /**
+         * Display all Candidate profiles for the admin to vote
+         */ 
         public ActionResult Admin()
         {
             if (Request.IsAuthenticated)
             {
-                ICandidateProfile iCandidateProfile = new CandidateProfile();
                 return View(iCandidateProfile.ViewAllProfiles());
             }
 
@@ -137,6 +142,7 @@ namespace Team11_2106Project.Controllers
                 //redirection to the action of login in the AccountController
                 return RedirectToAction("Admin", "Home");
         }
+
         public ActionResult Voter()
         {
             if (Request.IsAuthenticated)
@@ -146,6 +152,50 @@ namespace Team11_2106Project.Controllers
                 return RedirectToAction("Voter", "Home");
         }
 
+        /**
+         * Allows the Student to select their Candidate to vote and view their profiles
+         */ 
+        public ActionResult Vote(int id)
+        {
+            CandidateProfileViewModel candidateProfile = iCandidateProfile.ViewProfile(id);
+            if (candidateProfile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(candidateProfile);
+        }
+
+        /**
+         * Alows the Student to place their vote on a Candidate after confirmation
+         */ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Vote(Candidate candidate)
+        {
+
+            // Determine what role is the Student
+            if (TempData.ContainsKey("StudentRole"))
+            {
+                string studentRole = TempData["StudentRole"].ToString();
+
+                if (studentRole.Equals("Candidate"))
+                {
+                    iVote = new Candidate();
+                }
+                else if (studentRole.Equals("Voter"))
+                {
+                    iVote = new Voter();
+                }
+                else if (studentRole.Equals("Admin"))
+                {
+                    iVote = new Admin();
+                }
+                TempData["StudentRole"] = studentRole;
+            }
+
+
+            return View();
+        }
     }
 }
 

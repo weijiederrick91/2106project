@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Team11_2106Project.ViewModel.CandidateProfileViewModel>
+﻿@* Display all the candidates in the home page after the Admin logs in. This is so that the Admin 
+    can place a vote immediately *@
+
+@model IEnumerable<Team11_2106Project.ViewModel.CandidateProfileViewModel>
 
     @{
         ViewBag.Title = "Admin";
@@ -9,14 +12,16 @@
     <table class="table">
         <tr>
 
+            <th></th>
+            <th></th>
+            <th></th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.StudentYear)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Introduction)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CCA)
@@ -28,6 +33,10 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -35,19 +44,14 @@
                     @Html.DisplayFor(modelItem => item.StudentYear)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Introduction)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.CCA)
                 </td>
-
-
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CandidateID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CandidateID });
-                    @*//TODO LINK TO vote to VOTER*@
-
+                    <a href="@Url.Action("Vote", new { id = item.CandidateID })" class="btn btn-success">
+                        VOTE!
+                    </a>
                 </td>
+
             </tr>
         }
 

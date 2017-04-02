@@ -1,0 +1,76 @@
+﻿@* Allows the User to confirm their vote by viewing the Profile of the Candidates that they have selected
+    to vote earlier *@
+
+@model Team11_2106Project.ViewModel.CandidateProfileViewModel
+
+@{
+    ViewBag.Title = "Vote";
+}
+
+<h2>Vote</h2>
+
+<div>
+    <h4>CandidateProfileViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Introduction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @* Confirm Vote! *@
+    <a href="@Url.Action("Vote", new { candidate = Model })" class="btn btn-success">
+        CONFIRM VOTE!
+    </a>
+
+    @* Depending on the StudentRole, will redirect them to their appropriate page *@
+    @if (TempData.ContainsKey("StudentRole"))
+    {
+        var studentRole = TempData["StudentRole"].ToString();
+
+        if (studentRole.Equals("Candidate"))
+        {
+            @Html.ActionLink("Back to Home Page", "Candidate")
+        }
+        else if (studentRole.Equals("Voter"))
+        {
+            @Html.ActionLink("Back to Home Page", "Voter")
+        }
+        else if (studentRole.Equals("Admin"))
+        {
+            @Html.ActionLink("Back to Home Page", "Admin")
+        }
+        TempData["StudentRole"] = studentRole;
+    }
+
+</p>

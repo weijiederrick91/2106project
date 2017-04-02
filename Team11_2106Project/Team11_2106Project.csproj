@@ -296,6 +296,7 @@
     <Content Include="Views\RalliesViewModels\Details.cshtml" />
     <Content Include="Views\RalliesViewModels\Edit.cshtml" />
     <Content Include="Views\RalliesViewModels\Index.cshtml" />
+    <Content Include="Views\Home\Vote.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
