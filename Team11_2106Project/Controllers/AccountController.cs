@@ -49,7 +49,7 @@ namespace Team11_2106Project.Controllers
                     IsPersistent = model.RememberMe
                 }, identity);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Admin", "Home");
             }
             else if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentGender && model.StudentGender == Gender.Candidate))
             {   
@@ -61,7 +61,7 @@ namespace Team11_2106Project.Controllers
                     IsPersistent = model.RememberMe
                 }, identity);
 
-                return RedirectToAction("Admin", "Home");
+                return RedirectToAction("Index", "Home");
             }
             else
             {

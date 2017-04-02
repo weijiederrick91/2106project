@@ -289,10 +289,9 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\VoteControl.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Home\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
