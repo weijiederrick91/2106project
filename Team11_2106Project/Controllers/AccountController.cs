@@ -52,6 +52,21 @@ namespace Team11_2106Project.Controllers
                     return RedirectToAction("Admin", "Home");
                 }   
             }
+            else if (model.StudentRole == StudentRole.Candidate)
+            {
+                ILogIn<Candidate> iLogInAdmin = new Candidate();
+                if (iLogInAdmin.Login(model.UserName, model.Password))
+                {
+                    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    Authentication.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = model.RememberMe
+                    }, identity);
+
+                    return RedirectToAction("Index", "Home");
+                }
+            }
 
             ModelState.AddModelError("", "Invalid login attempt.");
             return View(model);
