@@ -33,11 +33,5 @@ namespace Team11_2106Project.DomainModel
             // candidate is not found in the table, candidate login is NOT valid
             return false;
         }
-
-        // inrement the totalVotesof the Candidate whenever a Voter votes for this Candidate
-        public void IncrementVote()
-        {
-            totalVotes++;
-        }
     }
 }

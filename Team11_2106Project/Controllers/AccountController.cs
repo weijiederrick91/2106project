@@ -37,8 +37,11 @@ namespace Team11_2106Project.Controllers
                 return View(model);
             }
 
+            // Check if user selects Admin role
             if (model.StudentRole == StudentRole.Admin)
             {
+
+                // check username and password in Admin table in DB
                 ILogIn<Admin> iLogInAdmin = new Admin();
                 if (iLogInAdmin.Login(model.UserName, model.Password))
                 {
@@ -52,8 +55,12 @@ namespace Team11_2106Project.Controllers
                     return RedirectToAction("Admin", "Home");
                 }   
             }
+
+            // Check if user selects Candidate role
             else if (model.StudentRole == StudentRole.Candidate)
             {
+
+                // check username and password in Candidate table in DB
                 ILogIn<Candidate> iLogInAdmin = new Candidate();
                 if (iLogInAdmin.Login(model.UserName, model.Password))
                 {
@@ -68,53 +75,28 @@ namespace Team11_2106Project.Controllers
                 }
             }
 
+            // Check if user selects Voter role
+            else if (model.StudentRole == StudentRole.Voter)
+            {
+
+                // check username and password in Voter table in DB
+                ILogIn<Voter> iLogInAdmin = new Voter();
+                if (iLogInAdmin.Login(model.UserName, model.Password))
+                {
+                    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    Authentication.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = model.RememberMe
+                    }, identity);
+
+                    return RedirectToAction("Voter", "Home");
+                }
+            }
+
+            // eror message if user key in wrong username and password for all StudentRoles
             ModelState.AddModelError("", "Invalid login attempt.");
             return View(model);
-            //var data = new Data();
-            //var users = data.getUsers();
-
-            ////Select the user and check if the name and password is the same and then check if the role that we select is the same.
-            //if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Admin))
-            //{   
-
-            //    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
-
-            //    Authentication.SignIn(new AuthenticationProperties
-            //    {
-            //        IsPersistent = model.RememberMe
-            //    }, identity);
-
-            //    return RedirectToAction("Admin", "Home");
-            //}
-            //else if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Candidate))
-            //{   
-
-            //    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
-
-            //    Authentication.SignIn(new AuthenticationProperties
-            //    {
-            //        IsPersistent = model.RememberMe
-            //    }, identity);
-
-            //    return RedirectToAction("Index", "Home");
-            //}
-            //if (users.Any(p => p.user == model.UserName && p.password == model.Password && p.ourRoles == model.StudentRole && model.StudentRole == StudentRole.Voter))
-            //{
-
-            //    var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
-
-            //    Authentication.SignIn(new AuthenticationProperties
-            //    {
-            //        IsPersistent = model.RememberMe
-            //    }, identity);
-
-            //    return RedirectToAction("Voter", "Home");
-            //}
-            //else
-            //{
-            //    ModelState.AddModelError("", "Invalid login attempt.");
-            //    return View(model);
-            //}
         }
 
         //
