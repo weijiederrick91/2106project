@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-
+using Team11_2106Project.ViewModel;
 namespace Team11_2106Project.DomainModel
 {
     interface ICandidateProfile
     {
-        ICandidateProfile ViewProfile(int id);
-        void EditProfile(ICandidateProfile ic);
-        IEnumerable<CandidateProfile> ViewAllProfiles(); 
+        CandidateProfileViewModel ViewProfile(int id);
+        void EditProfile(CandidateProfileViewModel ic);
+        IEnumerable<CandidateProfileViewModel> ViewAllProfiles();
     }
 }

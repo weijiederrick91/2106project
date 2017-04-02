@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using Team11_2106Project.ViewModel;
+using Team11_2106Project.DomainModel;
 
 namespace Team11_2106Project.Controllers
 {
@@ -8,13 +9,13 @@ namespace Team11_2106Project.Controllers
     //This class accepts input and converts it into commands and updates the view accordingly.  It is part of the presentation layer.
     public class CandidateProfilesController : Controller
     {
-       
         // GET: CandidateProfiles
+        internal ICandidateProfile IcanProf = new CandidateProfile();
 
-            
+
         public ActionResult Index()
-        {   
-            return View();
+        {
+            return View(IcanProf.ViewAllProfiles());
         }
         public ActionResult IndexWithComment()
         {
@@ -22,15 +23,25 @@ namespace Team11_2106Project.Controllers
         }
 
         // GET: CandidateProfiles/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            return View();
+
+            CandidateProfileViewModel candidateProfile = IcanProf.ViewProfile(id);
+            if (candidateProfile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(candidateProfile);
         }
 
         // GET: CandidateProfiles/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id = 1)
         {
-            return View();
+
+            // TODO HARDCODED ID NEEDS TO BE DYNAMIC
+            CandidateProfileViewModel CandidateProfile = IcanProf.ViewProfile(id);
+            return View(CandidateProfile);
+
         }
 
         // POST: CandidateProfiles/Edit/5
@@ -40,7 +51,13 @@ namespace Team11_2106Project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CandidateID,Name,StudentYear,UpdatedTime,PositionApplied,Introduction,CCA")] CandidateProfileViewModel candidateProfile)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                IcanProf.EditProfile(candidateProfile);
+
+                return RedirectToAction("Index");
+            }
+            return View(candidateProfile);
         }
     }
 }

@@ -1,44 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using Team11_2106Project.Gateway;
-
+using Team11_2106Project.ViewModel;
 namespace Team11_2106Project.DomainModel
 {
-    public class CandidateProfile :ICandidateProfile
+    public class CandidateProfile : ICandidateProfile
     {
-        private int candidateID {get;set;}
+        private int candidateID { get; set; }
         private string name { get; set; }
         private int studentyear { get; set; }
         private string cca { get; set; }
         private string introduction { get; set; }
-        private IDataGateway<CandidateProfile> dataGatewayCandidateProfile = new DataGateway<CandidateProfile>(); 
+        private IDataGateway<CandidateProfileViewModel> dataGatewayCandidateProfile = new DataGateway<CandidateProfileViewModel>();
 
-        public CandidateProfile ViewProfile(int id)
+        public CandidateProfileViewModel ViewProfile(int id)
         {
-            return null; 
-        }
-       public void EditProfile(CandidateProfile cd)
-        {
-        }
+            return dataGatewayCandidateProfile.SelectByID(id);
 
-        ICandidateProfile ICandidateProfile.ViewProfile(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public IEnumerable<CandidateProfile> ViewAllProfiles()
+        }
+        public void EditProfile(CandidateProfileViewModel cd)
         {
-            throw new NotImplementedException();
+            dataGatewayCandidateProfile.Update(cd);
+
+        }
+        public IEnumerable<CandidateProfileViewModel> ViewAllProfiles()
+        {
+            return dataGatewayCandidateProfile.SelectAll();
         }
 
-        void ICandidateProfile.EditProfile(ICandidateProfile ic)
-        {
-            throw new NotImplementedException();
-        }
 
-        IEnumerable<CandidateProfile> ICandidateProfile.ViewAllProfiles()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

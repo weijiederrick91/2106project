@@ -1,10 +1,12 @@
-﻿namespace Team11_2106Project.DomainModel
+﻿
+using Team11_2106Project.ViewModel;
+namespace Team11_2106Project.DomainModel
 {
     interface IRallies
     {
-        IRallies ViewRallies(int id);
-        void EditRallies(IRallies irally);
-        void CreateRallies(IRallies irally);
+        RalliesViewModel ViewRallies(int id);
+        void EditRallies(RalliesViewModel irally);
+        void CreateRallies(RalliesViewModel irally);
         void DeleteRallies(int id);
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Team11_2106Project.Models.CandidateProfile
+﻿@model Team11_2106Project.ViewModel.CandidateProfileViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>CandidateProfile</h4>
         <hr />
@@ -32,26 +32,12 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdatedTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdatedTime)
-                @Html.ValidationMessageFor(model => model.UpdatedTime)
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PositionApplied, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PositionApplied)
-                @Html.ValidationMessageFor(model => model.PositionApplied)
-            </div>
-        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Introduction, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               @Html.TextAreaFor(model => model.Introduction, new { rows = 10, cols = 50 })
+                @Html.TextAreaFor(model => model.Introduction, new { rows = 10, cols = 50 })
                 @Html.ValidationMessageFor(model => model.Introduction)
             </div>
         </div>

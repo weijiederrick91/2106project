@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Team11_2106Project.ViewModel;
 
 namespace Team11_2106Project.DomainModel
 {
@@ -13,22 +14,22 @@ namespace Team11_2106Project.DomainModel
         private string location { get; set; }
         private string description { get; set; }
 
-        IRallies IRallies.ViewRallies(int id)
+        public RalliesViewModel ViewRallies(int id)
         {
             throw new NotImplementedException();
         }
 
-        void IRallies.EditRallies(IRallies irally)
+        public void EditRallies(RalliesViewModel irally)
         {
             throw new NotImplementedException();
         }
 
-        void IRallies.CreateRallies(IRallies irally)
+        public void CreateRallies(RalliesViewModel irally)
         {
             throw new NotImplementedException();
         }
 
-        void IRallies.DeleteRallies(int id)
+        public void DeleteRallies(int id)
         {
             throw new NotImplementedException();
         }
