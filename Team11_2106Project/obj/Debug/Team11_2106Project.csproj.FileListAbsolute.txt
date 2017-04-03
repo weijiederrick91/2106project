@@ -414,3 +414,4 @@ C:\Users\muhammad\Desktop\test\2106project\Team11_2106Project\obj\Debug\Team11_2
 C:\Users\muhammad\Desktop\test\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.pdb
 C:\Users\muhammad\Desktop\test\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.Migrations.candidateName.resources
 C:\Users\muhammad\Desktop\test\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.csproj.GenerateResource.Cache
+C:\Users\muhammad\Desktop\test\2106project\Team11_2106Project\obj\Debug\Team11_2106Project.csprojResolveAssemblyReference.cache

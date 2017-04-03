@@ -211,7 +211,6 @@
     <Compile Include="DomainModel\IViewResults.cs" />
     <Compile Include="DomainModel\IVote.cs" />
     <Compile Include="DomainModel\Rallies.cs" />
-    <Compile Include="DomainModel\User.cs" />
     <Compile Include="DomainModel\Voter.cs" />
     <Compile Include="Gateway\DataGateway.cs" />
     <Compile Include="DBContext\ElectionDBContext.cs" />

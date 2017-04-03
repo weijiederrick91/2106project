@@ -10,12 +10,7 @@ namespace Team11_2106Project.DomainModel
 {
     public class Rallies : IRallies
     {
-        private int ralliesID { get; set; }
-        private int candidateID { get; set; }
-        private DateTime date { get; set; }
-        private string location { get; set; }
-        private string description { get; set; }
-
+    
         private IDataGateway<RalliesViewModel> dataGatewayRallies = new DataGateway<RalliesViewModel>();
 
 

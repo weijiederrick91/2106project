@@ -6,11 +6,6 @@ namespace Team11_2106Project.DomainModel
 {
     public class CandidateProfile : ICandidateProfile
     {
-        private int candidateID { get; set; }
-        private string name { get; set; }
-        private int studentyear { get; set; }
-        private string cca { get; set; }
-        private string introduction { get; set; }
         private IDataGateway<CandidateProfileViewModel> dataGatewayCandidateProfile = new DataGateway<CandidateProfileViewModel>();
 
         public CandidateProfileViewModel ViewProfile(int id)
