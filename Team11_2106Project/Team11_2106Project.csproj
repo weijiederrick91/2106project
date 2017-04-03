@@ -281,7 +281,6 @@
     <Content Include="Views\CandidateProfiles\Details.cshtml" />
     <Content Include="Views\CandidateProfiles\Edit.cshtml" />
     <Content Include="Views\CandidateProfiles\Index.cshtml" />
-    <Content Include="Views\CandidateProfiles\IndexWithComment.cshtml" />
     <Content Include="Views\Shared\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

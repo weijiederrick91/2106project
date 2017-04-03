@@ -45,11 +45,17 @@
     </dl>
 </div>
 <p>
-    @if (TempData.ContainsKey("CandidateID"))
+    @* Admin and candidate can edit rallies *@
+    @if (TempData.ContainsKey("AdminID"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RalliesID })<p>|</p>
+    }
+    else if (TempData.ContainsKey("CandidateID"))
     {
         var candidateID = TempData["CandidateID"].ToString();
 
-        if (candidateID.Equals(Model.RalliesID.ToString()))
+        // candidates can only edit thei own rallies
+        if (candidateID.Equals(Model.CandidateID.ToString()))
         {
 
             @Html.ActionLink("Edit", "Edit", new { id = Model.RalliesID }) <p>|</p>
@@ -58,7 +64,7 @@
         TempData["CandidateID"] = candidateID;
     }
 
-    
+
 
     @Html.ActionLink("Back to List", "Index")
 </p>

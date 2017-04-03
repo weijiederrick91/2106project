@@ -7,7 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @* Only Admin and candidate can create rallies *@
+    @if (TempData.ContainsKey("CandidateID") || TempData.ContainsKey("AdminID"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+    
 </p>
 <table class="table">
     <tr>
@@ -42,20 +47,29 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @* Only candidates can edit and delete their own rallies *@
-                @if (TempData.ContainsKey("CandidateID"))
-                {
-                    var candidateID = TempData["CandidateID"].ToString();
 
+                @* Candidate and Admin can edit and delete rallies *@
+                @if (TempData.ContainsKey("AdminID"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RalliesID }) <p>|</p>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RalliesID }) <p>|</p>
+                }
+                else if (TempData.ContainsKey("CandidateID"))
+                {
+
+                    var candidateID = TempData["CandidateID"].ToString();
+                
+                    @* Only candidates can edit and delete their own rallies *@
                     if (candidateID.Equals(item.CandidateID.ToString()))
                     {
-
                         @Html.ActionLink("Edit", "Edit", new { id = item.RalliesID }) <p>|</p>
                         @Html.ActionLink("Delete", "Delete", new { id = item.RalliesID }) <p>|</p>
                     }
 
                     TempData["CandidateID"] = candidateID;
                 } 
+
+
 
                 @Html.ActionLink("Details", "Details", new { id = item.RalliesID }) 
             </td>

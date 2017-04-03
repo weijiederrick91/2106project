@@ -44,7 +44,7 @@
 
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Your Profile", "Details", "CandidateProfiles", new { id = candidateID }, new { })</li>
-                            <li>@Html.ActionLink("Rally", "Index", "Rallies")</li>
+                            <li>@Html.ActionLink("Candidate Rallies", "Index", "Rallies")</li>
                         </ul>
 
                         TempData["CandidateID"] = candidateID;
@@ -53,17 +53,17 @@
                 else if (studentRole.Equals("Voter"))
                 {
                     <ul class="nav navbar-nav">
-                        <li>SUCK THAT BITCHES! VOTER!!!</li>
+                        <li>@Html.ActionLink("Candidate Rallies", "Index", "Rallies")</li>
                     </ul>
                 }
                 else if (studentRole.Equals("Admin"))
                 {
                     <ul class="nav navbar-nav">
 
-                        <li>@Html.ActionLink("Stats", "Stats", "Home")</li>
-                        <li>@Html.ActionLink("Rally", "Index", "Rallies")</li>
+                        <li>@Html.ActionLink("Voting Results", "Stats", "Home")</li>
+                        <li>@Html.ActionLink("Candidate Rallies", "Index", "Rallies")</li>
                         @*TODO FIND A WAY TO LINK CANDIDATE PROFILE PAGE*@
-                        <li>@Html.ActionLink("Candidate Profile", "Index", "CandidateProfiles")</li>
+                        <li>@Html.ActionLink("Candidate Profiles", "Index", "CandidateProfiles")</li>
                     </ul>
                 }
                 TempData["StudentRole"] = studentRole;

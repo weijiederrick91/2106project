@@ -58,6 +58,7 @@
     </div>
 }
 
+@* Only Admins are able to return and view all profiles *@
 @if (TempData.ContainsKey("AdminID"))
 {
     var adminID = TempData["AdminID"].ToString();

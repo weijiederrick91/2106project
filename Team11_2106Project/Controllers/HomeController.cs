@@ -120,6 +120,13 @@ namespace Team11_2106Project.Controllers
         public ActionResult LogOff()
         {
             Authentication.SignOut();
+ 
+            // Clear temp data
+            TempData.Remove("StudentRole");
+            TempData.Remove("VoterID");
+            TempData.Remove("AdminID");
+            TempData.Remove("CandidateID");
+
             return RedirectToAction("Login", "Home");
         }
 

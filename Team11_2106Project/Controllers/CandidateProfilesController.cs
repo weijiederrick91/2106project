@@ -65,6 +65,10 @@ namespace Team11_2106Project.Controllers
 
                     return RedirectToAction("Details", new { id = candidateID });           
                 }
+                else if (TempData.ContainsKey("AdminID"))
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(candidateProfile);
         }
