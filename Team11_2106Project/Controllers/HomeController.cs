@@ -14,6 +14,7 @@ namespace Team11_2106Project.Controllers
     {
 
         private ICandidateProfile iCandidateProfile = new CandidateProfile();
+        private IViewResults iViewResults = new Candidate();
         private IVote iVote;
 
         IAuthenticationManager Authentication
@@ -195,6 +196,15 @@ namespace Team11_2106Project.Controllers
 
 
             return View();
+        }
+
+        /**
+         * Redirect to statistics page
+         */ 
+        public ActionResult Stats()
+        {
+
+            return View(iViewResults.ViewVotingResults());
         }
     }
 }

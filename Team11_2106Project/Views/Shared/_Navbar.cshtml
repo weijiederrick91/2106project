@@ -10,7 +10,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Candidate</a>
+
+            @if (TempData.ContainsKey("StudentRole"))
+            {
+                var studentRole = TempData["StudentRole"].ToString();
+
+                if (studentRole.Equals("Candidate"))
+                {
+                    <a class="navbar-brand" href="@Url.Action("Candidate", "Home")">Candidate</a>
+                }
+                else if (studentRole.Equals("Admin"))
+                {
+                    <a class="navbar-brand" href="@Url.Action("Admin", "Home")">Admin</a>
+                }
+                else if (studentRole.Equals("Voter"))
+                {
+                    <a class="navbar-brand" href="@Url.Action("Voter", "Home")">Voter</a>
+                }
+                TempData["StudentRole"] = studentRole;
+            }
+            
         </div>
         <div class="collapse navbar-collapse">
             @if (TempData.ContainsKey("StudentRole"))
@@ -36,8 +55,8 @@
                 else if (studentRole.Equals("Admin"))
                 {
                     <ul class="nav navbar-nav">
-                        <li class="active">@Html.ActionLink("Home", "Index", new { controller = "Home" })
-                        <li>@Html.ActionLink("Stats", "Index", "Home")</li>
+
+                        <li>@Html.ActionLink("Stats", "Stats", "Home")</li>
                         <li>@Html.ActionLink("Rally", "Index", "RalliesViewModels")</li>
                         @*TODO FIND A WAY TO LINK CANDIDATE PROFILE PAGE*@
                         <li>@Html.ActionLink("Candidate Profile", "Index", "CandidateProfiles")</li>

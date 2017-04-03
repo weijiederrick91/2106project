@@ -207,6 +207,7 @@
     <Compile Include="DomainModel\ICandidateProfile.cs" />
     <Compile Include="DomainModel\ILogIn.cs" />
     <Compile Include="DomainModel\IRallies.cs" />
+    <Compile Include="DomainModel\IViewResults.cs" />
     <Compile Include="DomainModel\IVote.cs" />
     <Compile Include="DomainModel\Rallies.cs" />
     <Compile Include="DomainModel\User.cs" />
@@ -297,6 +298,7 @@
     <Content Include="Views\RalliesViewModels\Edit.cshtml" />
     <Content Include="Views\RalliesViewModels\Index.cshtml" />
     <Content Include="Views\Home\Vote.cshtml" />
+    <Content Include="Views\Home\Stats.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

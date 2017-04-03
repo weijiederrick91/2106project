@@ -1,12 +1,14 @@
-﻿using Team11_2106Project.Gateway;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Team11_2106Project.Gateway;
 using Team11_2106Project.ViewModel;
 
 /**
  * DomainModel that handles the business logic of the Candidate
- */ 
+ */
 namespace Team11_2106Project.DomainModel
 {
-    public class Candidate : Voter, ILogIn<Candidate>
+    public class Candidate : Voter, ILogIn<Candidate>, IViewResults
     {
 
         // local variable
@@ -32,6 +34,19 @@ namespace Team11_2106Project.DomainModel
             
             // candidate is not found in the table, candidate login is NOT valid
             return false;
+        }
+
+        /**
+         * Sort the Candidates via their total votes
+         */ 
+        public IEnumerable<CandidateViewModel> ViewVotingResults()
+        {
+            IEnumerable<CandidateViewModel> unsortedCandidates =  dataGatewayCandidate.SelectAll();
+
+            var sortedCandiates = from candidate in unsortedCandidates
+                                  select candidate;
+
+            return sortedCandiates.OrderByDescending(candidate => candidate.TotalVotes);
         }
     }
 }
