@@ -132,8 +132,38 @@ namespace Team11_2106Project.Controllers
 
         public ActionResult Index()
         {
-            if (Request.IsAuthenticated)
+            if (Authentication.User.Identity.IsAuthenticated)
+            {
+
+                // Determine what role is the Student
+                if (TempData.ContainsKey("StudentRole"))
+                {
+                    string studentRole = TempData["StudentRole"].ToString();
+
+                    if (studentRole.Equals("Candidate"))
+                    {
+                        iVote = new Candidate();
+                    }
+                    else if (studentRole.Equals("Voter"))
+                    {
+                        iVote = new Voter();
+                    }
+                    else if (studentRole.Equals("Admin"))
+                    {
+                        iVote = new Admin();
+                    }
+                    TempData["StudentRole"] = studentRole;
+
+                    // if current user has voted, send them to the results page
+                    if (iVote.hasCurrentUserVoted())
+                    {
+                        return RedirectToAction("Stats", "Home");
+                    }
+                }
+                // allow them to see all the candidates to vote
                 return View(iCandidateProfile.ViewAllProfiles());
+            }
+                
             else
                 //redirection to the action of login in the AccountController
                 return RedirectToAction("Login", "Home");

@@ -11,6 +11,8 @@ namespace Team11_2106Project.DomainModel
     {
 
         private int voterID { get; set; }
+        private bool hasVoted { get; set; }
+        public static Voter currentVoter;
 
         // dataGatewayVoter
         private IDataGateway<VoterViewModel> dataGatewayVoter = new DataGateway<VoterViewModel>();
@@ -29,7 +31,9 @@ namespace Team11_2106Project.DomainModel
                 // Voter is found in the table, Voter's login is valid!
                 if (voter.Email.Equals(email) && voter.Password.Equals(password))
                 {
-                    voterID = voter.VoterID;
+                    currentVoter = new Voter();
+                    currentVoter.voterID = voter.VoterID;
+                    currentVoter.hasVoted = voter.HasVoted;
                     return true;
                 }
             }
@@ -43,6 +47,11 @@ namespace Team11_2106Project.DomainModel
         public bool Vote(int candidateID)
         {
             return true;
+        }
+
+        public bool hasCurrentUserVoted()
+        {
+            return currentVoter.hasVoted;
         }
     }
 }
