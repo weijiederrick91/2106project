@@ -4,6 +4,12 @@
     ViewBag.Title = "Stats";
 }
 
+@if (TempData.ContainsKey("msg"))
+{
+    Html.Raw(TempData["msg"]);
+}
+
+
 <h2>View</h2>
 
 <table class="table">

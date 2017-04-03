@@ -44,8 +44,8 @@
 
                         <li>@Html.ActionLink("Voting Results", "Stats", "Home")</li>
                         <li>@Html.ActionLink("Candidate Rallies", "Index", "Rallies")</li>
-                        @*TODO FIND A WAY TO LINK CANDIDATE PROFILE PAGE*@
                         <li>@Html.ActionLink("Candidate Profiles", "Index", "CandidateProfiles")</li>
+                        <li>@Html.ActionLink("Edit Campaign Dates", "Details", "CampaignDate", new { id = 1 }, new { })</li>
                     </ul>
                 }
                 TempData["StudentRole"] = studentRole;

@@ -194,16 +194,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\CampaignDateController.cs" />
     <Compile Include="Controllers\CandidateProfilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\RalliesController.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="DomainModel\Admin.cs" />
-    <Compile Include="DomainModel\Campaign.cs" />
+    <Compile Include="DomainModel\CampaignDate.cs" />
     <Compile Include="DomainModel\Candidate.cs" />
     <Compile Include="DomainModel\CandidateProfile.cs" />
-    <Compile Include="DomainModel\ICampaign.cs" />
+    <Compile Include="DomainModel\ICampaignDate.cs" />
     <Compile Include="DomainModel\ICandidateProfile.cs" />
     <Compile Include="DomainModel\ILogIn.cs" />
     <Compile Include="DomainModel\IRallies.cs" />
@@ -297,6 +298,8 @@
     <Content Include="Views\Home\Vote.cshtml" />
     <Content Include="Views\Home\Stats.cshtml" />
     <Content Include="Views\Home\Voting.cshtml" />
+    <Content Include="Views\CampaignDate\Details.cshtml" />
+    <Content Include="Views\CampaignDate\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

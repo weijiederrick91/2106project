@@ -7,6 +7,7 @@ using Team11_2106Project.ViewModel;
 using System.Web;
 using Team11_2106Project.DomainModel;
 using System;
+using System.Web.UI;
 
 namespace Team11_2106Project.Controllers
 {
@@ -21,6 +22,8 @@ namespace Team11_2106Project.Controllers
         {
             get { return HttpContext.GetOwinContext().Authentication; }
         }
+
+        public object ClientScript { get; private set; }
 
         // GET: Account
         [AllowAnonymous]
@@ -218,6 +221,9 @@ namespace Team11_2106Project.Controllers
 
                 // Vote for the candidate by passing the candidate ID and the current user ID
                 iVote.Vote(id, Convert.ToInt32(currentUserID));
+
+                // TODO
+                TempData["msg"] = "<script>alert('Change succesfully');</script>";
 
                 // redirect to stats page
                 return RedirectToAction("Stats", "Home");
