@@ -16,10 +16,11 @@ namespace Team11_2106Project.DomainModel
 
         // dataGatewayVoter
         private IDataGateway<VoterViewModel> dataGatewayVoter = new DataGateway<VoterViewModel>();
+        private IDataGateway<CandidateViewModel> dataGatewayCandidate = new DataGateway<CandidateViewModel>();
 
         public int getID()
         {
-            return voterID;
+            return currentVoter.voterID;
         }
 
         // iterate through the Voter table to determine if Voter's login (email and password parameters)
@@ -44,9 +45,19 @@ namespace Team11_2106Project.DomainModel
 
         // TODO - implementation
         // allow the Voter to vote for the Candidate through the CandidateID
-        public bool Vote(int candidateID)
-        {
-            return true;
+        public void Vote(int candidateID, int currentUserID)
+        { 
+            // capture currentUser, set HasVoted to true and save it to DB
+            VoterViewModel currentUser = dataGatewayVoter.SelectByID(currentUserID);
+            currentUser.HasVoted = true;
+            dataGatewayVoter.Update(currentUser);
+
+            currentVoter.hasVoted = true;   // save it in runtime class
+
+            // capture Candidate to be voted, increment TotalVotes and save it to DB
+            CandidateViewModel candidate = dataGatewayCandidate.SelectByID(candidateID);
+            candidate.TotalVotes++;
+            dataGatewayCandidate.Update(candidate);
         }
 
         public bool hasCurrentUserVoted()

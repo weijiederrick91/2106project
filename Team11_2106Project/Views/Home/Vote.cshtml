@@ -49,28 +49,10 @@
 </div>
 <p>
     @* Confirm Vote! *@
-    <a href="@Url.Action("Vote", new { candidate = Model })" class="btn btn-success">
+    <a href="@Url.Action("Voting", new { id = Model.CandidateID })" class="btn btn-success">
         CONFIRM VOTE!
     </a>
 
-    @* Depending on the StudentRole, will redirect them to their appropriate page *@
-    @if (TempData.ContainsKey("StudentRole"))
-    {
-        var studentRole = TempData["StudentRole"].ToString();
-
-        if (studentRole.Equals("Candidate"))
-        {
-            @Html.ActionLink("Back to Home Page", "Candidate")
-        }
-        else if (studentRole.Equals("Voter"))
-        {
-            @Html.ActionLink("Back to Home Page", "Voter")
-        }
-        else if (studentRole.Equals("Admin"))
-        {
-            @Html.ActionLink("Back to Home Page", "Admin")
-        }
-        TempData["StudentRole"] = studentRole;
-    }
+    @Html.ActionLink("Back to Home Page", "Index")
 
 </p>

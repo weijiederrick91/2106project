@@ -296,6 +296,7 @@
     <Content Include="Views\Rallies\Index.cshtml" />
     <Content Include="Views\Home\Vote.cshtml" />
     <Content Include="Views\Home\Stats.cshtml" />
+    <Content Include="Views\Home\Voting.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

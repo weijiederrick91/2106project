@@ -10,25 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-            @if (TempData.ContainsKey("StudentRole"))
-            {
-                var studentRole = TempData["StudentRole"].ToString();
-
-                if (studentRole.Equals("Candidate"))
-                {
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Candidate</a>
-                }
-                else if (studentRole.Equals("Admin"))
-                {
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Admin</a>
-                }
-                else if (studentRole.Equals("Voter"))
-                {
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Voter</a>
-                }
-                TempData["StudentRole"] = studentRole;
-            }
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">Home</a>
             
         </div>
         <div class="collapse navbar-collapse">

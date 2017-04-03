@@ -6,7 +6,7 @@ using System.Security.Claims;
 using Team11_2106Project.ViewModel;
 using System.Web;
 using Team11_2106Project.DomainModel;
-
+using System;
 
 namespace Team11_2106Project.Controllers
 {
@@ -185,33 +185,46 @@ namespace Team11_2106Project.Controllers
         /**
          * Alows the Student to place their vote on a Candidate after confirmation
          */ 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Vote(Candidate candidate)
+        public ActionResult Voting(int id)
         {
 
+            string currentUserID = "";
+
             // Determine what role is the Student
+            // capture the id of the Student that is voting for any roles
             if (TempData.ContainsKey("StudentRole"))
             {
                 string studentRole = TempData["StudentRole"].ToString();
 
                 if (studentRole.Equals("Candidate"))
                 {
+                    currentUserID = TempData["CandidateID"].ToString();
+                    TempData["CandidateID"] = currentUserID;
                     iVote = new Candidate();
                 }
                 else if (studentRole.Equals("Voter"))
                 {
+                    currentUserID = TempData["VoterID"].ToString();
+                    TempData["VoterID"] = currentUserID;
                     iVote = new Voter();
                 }
                 else if (studentRole.Equals("Admin"))
                 {
+                    currentUserID = TempData["AdminID"].ToString();
+                    TempData["AdminID"] = currentUserID;
                     iVote = new Admin();
                 }
                 TempData["StudentRole"] = studentRole;
+
+                // Vote for the candidate by passing the candidate ID and the current user ID
+                iVote.Vote(id, Convert.ToInt32(currentUserID));
+
+                // redirect to stats page
+                return RedirectToAction("Stats", "Home");
             }
 
+            return RedirectToAction("Login", "Home");
 
-            return View();
         }
 
         /**
