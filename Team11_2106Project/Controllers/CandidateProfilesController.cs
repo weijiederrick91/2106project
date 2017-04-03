@@ -55,7 +55,16 @@ namespace Team11_2106Project.Controllers
             {
                 IcanProf.EditProfile(candidateProfile);
 
-                return RedirectToAction("Index");
+                // check if student is a candidate
+                // return candidate to their own profile
+                if (TempData.ContainsKey("CandidateID"))
+                {
+                    var candidateID = TempData["CandidateID"].ToString();
+
+                    TempData["CandidateID"] = candidateID;
+
+                    return RedirectToAction("Details", new { id = candidateID });           
+                }
             }
             return View(candidateProfile);
         }

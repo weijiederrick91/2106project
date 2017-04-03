@@ -58,9 +58,20 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@if (TempData.ContainsKey("AdminID"))
+{
+    var adminID = TempData["AdminID"].ToString();
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    TempData["AdminID"] = adminID;
+}
+
+ 
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

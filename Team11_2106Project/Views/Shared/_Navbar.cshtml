@@ -38,13 +38,17 @@
 
                 if (studentRole.Equals("Candidate"))
                 {
-                    <ul class="nav navbar-nav">
-                        @*<li class="active">@Html.ActionLink("Home", "Index", new { controller = "Home" })
-                    <li>@Html.ActionLink("Profile", "VoteControl", "Vote")</li>
-                    <li>@Html.ActionLink("Rally", "Index", "Home")</li>*@
+                    if (TempData.ContainsKey("CandidateID"))
+                    {
+                        var candidateID = TempData["CandidateID"].ToString();
 
-                        <li>SUCK THAT BITCHES! CANDIDATE!!!</li>
-                    </ul>
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Your Profile", "Details", "CandidateProfiles", new { id = candidateID }, new { })</li>
+                            <li>@Html.ActionLink("Rally", "Index", "RalliesViewModels")</li>
+                        </ul>
+
+                        TempData["CandidateID"] = candidateID;
+                    } 
                 }
                 else if (studentRole.Equals("Voter"))
                 {

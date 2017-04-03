@@ -1,4 +1,5 @@
-﻿using Team11_2106Project.Gateway;
+﻿using System;
+using Team11_2106Project.Gateway;
 using Team11_2106Project.ViewModel;
 
 /**
@@ -8,8 +9,16 @@ namespace Team11_2106Project.DomainModel
 {
     public class Voter : IVote, ILogIn<Voter>
     {
+
+        private int voterID { get; set; }
+
         // dataGatewayVoter
         private IDataGateway<VoterViewModel> dataGatewayVoter = new DataGateway<VoterViewModel>();
+
+        public int getID()
+        {
+            return voterID;
+        }
 
         // iterate through the Voter table to determine if Voter's login (email and password parameters)
         // are valid
@@ -20,6 +29,7 @@ namespace Team11_2106Project.DomainModel
                 // Voter is found in the table, Voter's login is valid!
                 if (voter.Email.Equals(email) && voter.Password.Equals(password))
                 {
+                    voterID = voter.VoterID;
                     return true;
                 }
             }

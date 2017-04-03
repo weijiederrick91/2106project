@@ -38,5 +38,16 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CandidateID }) |
-    @Html.ActionLink("Back to List", "Index")
+
+
+
+    @if (TempData.ContainsKey("AdminID"))
+    {
+        var adminID = TempData["AdminID"].ToString();
+
+          @Html.ActionLink("Back to List", "Index")
+
+        TempData["AdminID"] = adminID;
+    } 
+
 </p>

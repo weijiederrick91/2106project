@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Team11_2106Project.Gateway;
 using Team11_2106Project.ViewModel;
@@ -13,7 +14,6 @@ namespace Team11_2106Project.DomainModel
 
         // local variable
         private int candidateID { get; set; }
-        private int totalVotes { get; set; }
 
         // dataGatewayCandidate
         private IDataGateway<CandidateViewModel> dataGatewayCandidate = new DataGateway<CandidateViewModel>();
@@ -28,6 +28,7 @@ namespace Team11_2106Project.DomainModel
                 // candidate is found in the table, candidate login is valid
                 if (candidate.Email.Equals(email) && candidate.Password.Equals(password))
                 {
+                    candidateID = candidate.CandidateID;
                     return true;
                 }
             }
@@ -38,15 +39,20 @@ namespace Team11_2106Project.DomainModel
 
         /**
          * Sort the Candidates via their total votes
-         */ 
+         */
         public IEnumerable<CandidateViewModel> ViewVotingResults()
         {
-            IEnumerable<CandidateViewModel> unsortedCandidates =  dataGatewayCandidate.SelectAll();
+            IEnumerable<CandidateViewModel> unsortedCandidates = dataGatewayCandidate.SelectAll();
 
             var sortedCandiates = from candidate in unsortedCandidates
                                   select candidate;
 
             return sortedCandiates.OrderByDescending(candidate => candidate.TotalVotes);
+        }
+
+        public int getID()
+        {
+            return candidateID;
         }
     }
 }

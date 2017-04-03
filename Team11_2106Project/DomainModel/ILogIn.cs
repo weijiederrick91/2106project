@@ -3,5 +3,6 @@
     interface ILogIn<T>
     {
         bool Login(string email, string password);
+        int getID();
     }
 }

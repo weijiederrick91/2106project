@@ -58,7 +58,7 @@ namespace Team11_2106Project.Controllers
                     }, identity);
 
                     TempData["StudentRole"] = "Admin";
-                    TempData["Student"] = model;
+                    TempData["AdminID"] = iLogInAdmin.getID();
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -69,8 +69,8 @@ namespace Team11_2106Project.Controllers
             {
 
                 // check username and password in Candidate table in DB
-                ILogIn<Candidate> iLogInAdmin = new Candidate();
-                if (iLogInAdmin.Login(model.UserName, model.Password))
+                ILogIn<Candidate> iLogInCandidate = new Candidate();
+                if (iLogInCandidate.Login(model.UserName, model.Password))
                 {
                     var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
 
@@ -80,6 +80,7 @@ namespace Team11_2106Project.Controllers
                     }, identity);
 
                     TempData["StudentRole"] = "Candidate";
+                    TempData["CandidateID"] = iLogInCandidate.getID();
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -90,8 +91,8 @@ namespace Team11_2106Project.Controllers
             {
 
                 // check username and password in Voter table in DB
-                ILogIn<Voter> iLogInAdmin = new Voter();
-                if (iLogInAdmin.Login(model.UserName, model.Password))
+                ILogIn<Voter> iLogInVoter = new Voter();
+                if (iLogInVoter.Login(model.UserName, model.Password))
                 {
                     var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.UserName), }, DefaultAuthenticationTypes.ApplicationCookie);
 
@@ -101,6 +102,7 @@ namespace Team11_2106Project.Controllers
                     }, identity);
 
                     TempData["StudentRole"] = "Voter";
+                    TempData["VoterID"] = iLogInVoter.getID();
 
                     return RedirectToAction("Index", "Home");
                 }

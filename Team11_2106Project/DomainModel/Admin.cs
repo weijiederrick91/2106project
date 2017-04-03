@@ -1,4 +1,5 @@
-﻿using Team11_2106Project.Gateway;
+﻿using System;
+using Team11_2106Project.Gateway;
 using Team11_2106Project.ViewModel;
 
 /**
@@ -24,12 +25,18 @@ namespace Team11_2106Project.DomainModel
                 // if email and password matches an Admin found in the table, admin's login is valid!
                 if (admin.Email.Equals(email) && admin.Password.Equals(password))
                 {
+                    adminID = admin.AdminID;
                     return true;
                 }
             }
 
             // else, admin's login is invalid!
             return false;
+        }
+
+        public int getID()
+        {
+            return adminID;
         }
     }
 }
