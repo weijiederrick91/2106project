@@ -12,7 +12,7 @@ namespace Team11_2106Project.DomainModel
 
         private int voterID { get; set; }
         private bool hasVoted { get; set; }
-        public static Voter currentVoter;
+        private static Voter currentVoter;
 
         // dataGatewayVoter
         private IDataGateway<VoterViewModel> dataGatewayVoter = new DataGateway<VoterViewModel>();
@@ -43,7 +43,6 @@ namespace Team11_2106Project.DomainModel
             return false;
         }
 
-        // TODO - implementation
         // allow the Voter to vote for the Candidate through the CandidateID
         public void Vote(int candidateID, int currentUserID)
         { 
