@@ -17,15 +17,15 @@
 
                 if (studentRole.Equals("Candidate"))
                 {
-                    <a class="navbar-brand" href="@Url.Action("Candidate", "Home")">Candidate</a>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Candidate</a>
                 }
                 else if (studentRole.Equals("Admin"))
                 {
-                    <a class="navbar-brand" href="@Url.Action("Admin", "Home")">Admin</a>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Admin</a>
                 }
                 else if (studentRole.Equals("Voter"))
                 {
-                    <a class="navbar-brand" href="@Url.Action("Voter", "Home")">Voter</a>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Voter</a>
                 }
                 TempData["StudentRole"] = studentRole;
             }

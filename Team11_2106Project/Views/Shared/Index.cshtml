@@ -1,11 +1,59 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@model IEnumerable<Team11_2106Project.ViewModel.CandidateProfileViewModel>
+
+@{
+    ViewBag.Title = "Index";
 }
 
-<h1>Student Management Committee Election</h1>
+<h2>Index</h2>
 
-<p>
-    What type of committee is your kind of committee? <img src="~/Content/images/voting.png" style="float: right; padding: 1em 0 1em 1em;" />
-    Calling all students!Yearly, committees come and go, but their contributions lasts.Have you thought about  who to vote for?
-    we welcome you to this webiste where you browse the profiles of the candidiates and who to vote for!
-</p>
+<table class="table">
+    <tr>
+
+        <th></th>
+        <th></th>
+        <th></th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.StudentYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCA)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCA)
+                </td>
+                <td>
+                    <a href="@Url.Action("Vote", new { id = item.CandidateID })" class="btn btn-success">
+                        VOTE!
+                    </a>
+                </td>
+
+            </tr>
+        }
+    }
+
+</table>

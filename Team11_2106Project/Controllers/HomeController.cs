@@ -58,8 +58,9 @@ namespace Team11_2106Project.Controllers
                     }, identity);
 
                     TempData["StudentRole"] = "Admin";
+                    TempData["Student"] = model;
 
-                    return RedirectToAction("Admin", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
@@ -101,7 +102,7 @@ namespace Team11_2106Project.Controllers
 
                     TempData["StudentRole"] = "Voter";
 
-                    return RedirectToAction("Voter", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
@@ -123,34 +124,10 @@ namespace Team11_2106Project.Controllers
         public ActionResult Index()
         {
             if (Request.IsAuthenticated)
-                return View();
+                return View(iCandidateProfile.ViewAllProfiles());
             else
                 //redirection to the action of login in the AccountController
                 return RedirectToAction("Login", "Home");
-        }
-
-        /**
-         * Display all Candidate profiles for the admin to vote
-         */ 
-        public ActionResult Admin()
-        {
-            if (Request.IsAuthenticated)
-            {
-                return View(iCandidateProfile.ViewAllProfiles());
-            }
-
-            else
-                //redirection to the action of login in the AccountController
-                return RedirectToAction("Admin", "Home");
-        }
-
-        public ActionResult Voter()
-        {
-            if (Request.IsAuthenticated)
-                return View();
-            else
-                //redirection to the action of login in the AccountController
-                return RedirectToAction("Voter", "Home");
         }
 
         /**
