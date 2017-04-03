@@ -45,6 +45,20 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RalliesID }) |
+    @if (TempData.ContainsKey("CandidateID"))
+    {
+        var candidateID = TempData["CandidateID"].ToString();
+
+        if (candidateID.Equals(Model.RalliesID.ToString()))
+        {
+
+            @Html.ActionLink("Edit", "Edit", new { id = Model.RalliesID }) <p>|</p>
+        }
+
+        TempData["CandidateID"] = candidateID;
+    }
+
+    
+
     @Html.ActionLink("Back to List", "Index")
 </p>

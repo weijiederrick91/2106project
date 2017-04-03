@@ -42,9 +42,22 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RalliesID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RalliesID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RalliesID })
+                @* Only candidates can edit and delete their own rallies *@
+                @if (TempData.ContainsKey("CandidateID"))
+                {
+                    var candidateID = TempData["CandidateID"].ToString();
+
+                    if (candidateID.Equals(item.CandidateID.ToString()))
+                    {
+
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RalliesID }) <p>|</p>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RalliesID }) <p>|</p>
+                    }
+
+                    TempData["CandidateID"] = candidateID;
+                } 
+
+                @Html.ActionLink("Details", "Details", new { id = item.RalliesID }) 
             </td>
         </tr>
     }

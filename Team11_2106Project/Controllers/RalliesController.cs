@@ -11,7 +11,7 @@ using Team11_2106Project.ViewModel;
 using Team11_2106Project.DomainModel;
 namespace Team11_2106Project.Controllers
 {
-    public class RalliesViewModelsController : Controller
+    public class RalliesController : Controller
     {
         internal IRallies Irally = new Rallies();
         private ElectionDBContext db = new ElectionDBContext();
@@ -57,7 +57,7 @@ namespace Team11_2106Project.Controllers
         }
 
         // GET: RalliesViewModels/Edit/5
-        public ActionResult Edit(int id = 4)
+        public ActionResult Edit(int id)
         {
             // TODO HARDCODED ID NEEDS TO BE DYNAMIC
             RalliesViewModel rallyProfile = Irally.ViewRallies(id);

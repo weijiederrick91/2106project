@@ -197,7 +197,7 @@
     <Compile Include="Controllers\CandidateProfilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
-    <Compile Include="Controllers\RalliesViewModelsController.cs" />
+    <Compile Include="Controllers\RalliesController.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="DomainModel\Admin.cs" />
     <Compile Include="DomainModel\Campaign.cs" />
@@ -290,11 +290,11 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\VoteControl.cshtml" />
-    <Content Include="Views\RalliesViewModels\Create.cshtml" />
-    <Content Include="Views\RalliesViewModels\Delete.cshtml" />
-    <Content Include="Views\RalliesViewModels\Details.cshtml" />
-    <Content Include="Views\RalliesViewModels\Edit.cshtml" />
-    <Content Include="Views\RalliesViewModels\Index.cshtml" />
+    <Content Include="Views\Rallies\Create.cshtml" />
+    <Content Include="Views\Rallies\Delete.cshtml" />
+    <Content Include="Views\Rallies\Details.cshtml" />
+    <Content Include="Views\Rallies\Edit.cshtml" />
+    <Content Include="Views\Rallies\Index.cshtml" />
     <Content Include="Views\Home\Vote.cshtml" />
     <Content Include="Views\Home\Stats.cshtml" />
   </ItemGroup>

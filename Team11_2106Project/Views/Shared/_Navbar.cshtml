@@ -44,7 +44,7 @@
 
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Your Profile", "Details", "CandidateProfiles", new { id = candidateID }, new { })</li>
-                            <li>@Html.ActionLink("Rally", "Index", "RalliesViewModels")</li>
+                            <li>@Html.ActionLink("Rally", "Index", "Rallies")</li>
                         </ul>
 
                         TempData["CandidateID"] = candidateID;
@@ -61,7 +61,7 @@
                     <ul class="nav navbar-nav">
 
                         <li>@Html.ActionLink("Stats", "Stats", "Home")</li>
-                        <li>@Html.ActionLink("Rally", "Index", "RalliesViewModels")</li>
+                        <li>@Html.ActionLink("Rally", "Index", "Rallies")</li>
                         @*TODO FIND A WAY TO LINK CANDIDATE PROFILE PAGE*@
                         <li>@Html.ActionLink("Candidate Profile", "Index", "CandidateProfiles")</li>
                     </ul>
